@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany,CreateDateColumn } from 'typeorm';
 import { Task } from './Task';
 import { Category } from './Category';
 import { Tag } from './Tag';
@@ -25,4 +25,7 @@ export class User {
 
   @OneToMany(() => Tag, (tag) => tag.user)
   tags!: Tag[];
+
+  @CreateDateColumn()
+  created_in!: Date;
 }

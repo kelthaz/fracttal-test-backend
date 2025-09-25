@@ -8,7 +8,6 @@ export class AuthController {
         this.authService = new AuthService();
     }
 
-    // Arrow function mantiene el contexto de 'this'
     register = async (req: Request, res: Response) => {
         try {
             const { email, password, name } = req.body;
@@ -29,7 +28,6 @@ export class AuthController {
         }
     };
 
-    // authController.ts
     getProfile = async (req: Request, res: Response) => {
         try {
             const userId = req.user!.id;
@@ -37,7 +35,7 @@ export class AuthController {
                 return res.status(401).json({ error: 'Usuario no autenticado' });
             }
 
-            const user = await this.authService.getUserById(userId); // debes implementar este método
+            const user = await this.authService.getUserById(userId);
             res.status(200).json({ user });
         } catch (error: any) {
             res.status(500).json({ error: error.message });

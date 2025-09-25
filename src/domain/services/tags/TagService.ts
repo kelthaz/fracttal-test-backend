@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../../config/data-source";
+import { AppDataSource } from "../../../infrastructure/config/data-source";
 import { Tag } from "../../../domain/entities/Tag";
 
 export class TagService {

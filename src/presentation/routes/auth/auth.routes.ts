@@ -1,4 +1,3 @@
-// src/interfaces/routes/auth.routes.ts
 import { Router } from 'express';
 import { AuthController } from '../../controllers/auth/AuthController';
 import { registerValidation, loginValidation } from '../../middlewares/authValidation';
@@ -111,9 +110,5 @@ router.post('/login', loginValidation, validateRequest, authController.login);
  */
 
 router.get('/perfil', authenticateJWT, validateRequest, authController.getProfile);
-
-
-// En este archivo, podrías agregar otras rutas de autenticación
-// como 'forgot-password' o 'reset-password' en el futuro.
 
 export default router;

@@ -26,7 +26,7 @@ const options = {
         bearerAuth: []
     }]
   },
-  apis: ['./src/interfaces/routes/**/*.ts'],// Asegúrate de que esta ruta sea correcta
+  apis: ['./src/presentation/routes/**/*.ts'],
 };
 
 const swaggerSpec = swaggerJsdoc(options);

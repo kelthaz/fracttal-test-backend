@@ -29,7 +29,7 @@ export class Task {
     @Column({ type: 'timestamp', nullable: true })
     expiration_date!: Date;
 
-    @Column({ default: 'media' }) // Ejemplo de prioridad
+    @Column({ default: 'media' })
     priority!: string;
 
     @CreateDateColumn()
