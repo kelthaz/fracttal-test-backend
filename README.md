@@ -9,7 +9,7 @@
 ![Node.js](https://img.shields.io/badge/Node.js-339933.svg?style=flat&logo=node.js&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-000000.svg?style=flat&logo=express&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1.svg?style=flat&logo=postgresql&logoColor=white)
-![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7.svg?style=flat&logo=sequelize&logoColor=white)
+![TypeORM](https://img.shields.io/badge/TypeORM-3178C6.svg?style=flat&logo=typeorm&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000.svg?style=flat&logo=jsonwebtokens&logoColor=white)
 ![Dotenv](https://img.shields.io/badge/Dotenv-ECD53F.svg?style=flat&logo=dotenv&logoColor=black)
 ![ESLint](https://img.shields.io/badge/ESLint-4B32C3.svg?style=flat&logo=ESLint&logoColor=white)
