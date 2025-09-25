@@ -131,10 +131,9 @@ POST /api/tags → crear nueva etiqueta
 **La estructura del proyecto sigue una arquitectura limpia:**
 ```sh
 src/
-│── domain/             # Entidades y modelos de dominio
-│── infrastructure/     # Conexiones a DB, repositorios, configuración
-│── presentation/         # Controllers, middlewares, routes y types
-│── config/             # Configuración centralizada (dotenv, db, etc.)
+│── domain/             # Entidades y servicios del dominio
+│── infrastructure/     # Conexiones a DB, configuración
+│── presentation/       # Controllers, middlewares, routes y types
 │── server.js           # Punto de entrada principal
 
 ```
