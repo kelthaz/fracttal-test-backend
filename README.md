@@ -86,7 +86,7 @@ DB_PASSWORD=tu_password
 DB_NAME=fracttal_test
 JWT_SECRET=clave_super_segura
 ```
-Tener en cuenta que debes cambiar los nombres a como tenngas tu usuario y DB en tu maquina local.
+Tener en cuenta que debes cambiar los nombres a como tengas tu usuario y DB en tu maquina local.
 
 
 5. **Iniciar el servidor en desarrollo:**
@@ -97,6 +97,11 @@ npm run dev
 6. **Una vez en ejecución, el backend estará disponible en:**
 ```
 http://localhost:4000/api
+```
+
+7. **Para validar cada uno de los Endpoints con la ayuda de swagger aca ingresaras a la siguiente ruta donde podras pobrar los request y response de cada uno de los servicios y realizar pruebas de cada uno.**
+```
+http://localhost:4000/api-docs/
 ```
 
 ### Scripts de Base de Datos
