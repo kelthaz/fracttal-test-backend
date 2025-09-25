@@ -9,6 +9,10 @@ export class TagService {
   }
 
   async create(userId: string, data: { name: string }) {
+    if (!data.name || data.name.trim() === "") {
+      throw new Error("El nombre es obligatorio");
+    }
+  
     const tag = this.tagRepository.create({ ...data, user: { id: userId } });
     return this.tagRepository.save(tag);
   }

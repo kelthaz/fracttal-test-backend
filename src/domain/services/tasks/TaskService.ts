@@ -87,6 +87,13 @@ export class TasksService {
 
 
   async create(userId: string, data: any) {
+    if (typeof data.title !== "string" || data.title.trim() === "") {
+      throw new Error("El título debe ser un string no vacío");
+    }
+
+    if (typeof data.description !== "string" || data.description.trim() === "") {
+      throw new Error("La descripción debe ser un string no vacío");
+    }
     const tarea = this.taskRepository.create({
       ...data,
       user: { id: userId },
@@ -96,31 +103,45 @@ export class TasksService {
   }
 
   async update(userId: string, taskId: string, data: any) {
-    const task = await this.taskRepository.findOne({
-      where: { id: taskId, user: { id: userId } },
-      relations: ['tags', 'category'],
-    });
+    try {
+      if (typeof data.title !== "string" || data.title.trim() === "") {
+        throw new Error("El título debe ser un string no vacío");
+      }
+  
+      if (typeof data.description !== "string" || data.description.trim() === "") {
+        throw new Error("La descripción debe ser un string no vacío");
+      }
 
-    if (!task) throw new Error("Tarea no encontrada");
-
-    const { tags, categoryId, ...rest } = data;
-    Object.assign(task, rest);
-
-    if (categoryId) {
-      const category = await this.categoryRepository.findOne({
-        where: { id: categoryId, user: { id: userId } },
+      const task = await this.taskRepository.findOne({
+        where: { id: taskId, user: { id: userId } },
+        relations: ['tags', 'category'],
       });
-      if (!category) throw new Error("Categoría no encontrada");
-      task.category = category;
-    }
 
-    if (tags && tags.length > 0) {
-      const tagEntities = await this.tagRepository.findByIds(tags);
-      task.tags = tagEntities;
-    }
+      if (!task) throw new Error("Tarea no encontrada");
 
-    return this.taskRepository.save(task);
+      const { tags, categoryId, ...rest } = data;
+      Object.assign(task, rest);
+
+      if (categoryId) {
+        const category = await this.categoryRepository.findOne({
+          where: { id: categoryId, user: { id: userId } },
+        });
+        if (!category) throw new Error("Categoría no encontrada");
+        task.category = category;
+      }
+
+      if (tags && tags.length > 0) {
+        const tagEntities = await this.tagRepository.findByIds(tags);
+        task.tags = tagEntities;
+      }
+
+      return await this.taskRepository.save(task);
+
+    } catch (error: any) {
+      throw new Error(error.message || "Error al actualizar la tarea");
+    }
   }
+
 
   async delete(userId: string, id: string) {
     const result = await this.taskRepository.delete({ id, user: { id: userId } });

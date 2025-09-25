@@ -9,6 +9,9 @@ export class CategoryService {
   }
 
   async create(userId: string, data: { name: string }) {
+    if (!data.name || data.name.trim() === "") {
+      throw new Error("El nombre de la categoría es obligatorio");
+    }
     const category = this.categoryRepository.create({ ...data, user: { id: userId } });
     return this.categoryRepository.save(category);
   }

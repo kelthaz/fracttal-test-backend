@@ -153,36 +153,84 @@ router.post("/", authenticateJWT, taskController.create);
  *             properties:
  *               title:
  *                 type: string
- *                 example: Comprar leche
+ *                 example: w2
  *               description:
  *                 type: string
- *                 example: En la tienda del barrio
- *               completar:
+ *                 example: w2
+ *               complete:
  *                 type: boolean
- *                 example: false
+ *                 example: true
  *               priority:
  *                 type: string
- *                 example: alta
+ *                 example: baja
  *               expiration_date:
  *                 type: string
  *                 format: date-time
  *                 nullable: true
- *                 example: 2025-09-25T12:00:00Z
+ *                 example: 2025-10-15T00:00:00.000Z
  *               categoryId:
  *                 type: string
- *                 example: c1d2e3f4
+ *                 example: 31e1d261-c3c3-447c-9fa5-057141d945fa
  *               tags:
  *                 type: array
  *                 items:
  *                   type: string
- *                 example: ["t1", "t2"]
+ *                 example: ["74f2cf13-7ecd-451e-8474-7ab2cb22ce95"]
  *     responses:
  *       '200':
  *         description: Tarea actualizada exitosamente
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Task'
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: string
+ *                   example: 0db2051e-4805-4c56-a8e2-52452f4d872d
+ *                 title:
+ *                   type: string
+ *                   example: w2
+ *                 description:
+ *                   type: string
+ *                   example: w2
+ *                 complete:
+ *                   type: boolean
+ *                   example: true
+ *                 expiration_date:
+ *                   type: string
+ *                   format: date-time
+ *                   example: 2025-10-15T00:00:00.000Z
+ *                 priority:
+ *                   type: string
+ *                   example: baja
+ *                 created_in:
+ *                   type: string
+ *                   format: date-time
+ *                   example: 2025-09-24T23:31:38.784Z
+ *                 updated_in:
+ *                   type: string
+ *                   format: date-time
+ *                   example: 2025-09-25T04:08:45.582Z
+ *                 tags:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       id:
+ *                         type: string
+ *                         example: 74f2cf13-7ecd-451e-8474-7ab2cb22ce95
+ *                       name:
+ *                         type: string
+ *                         example: t1
+ *                 category:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: string
+ *                       example: 31e1d261-c3c3-447c-9fa5-057141d945fa
+ *                     name:
+ *                       type: string
+ *                       example: Estudio
  *       '400':
  *         description: Error de validación o tarea no encontrada
  *       '401':
