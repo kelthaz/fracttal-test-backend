@@ -78,7 +78,7 @@ npm install
 
 4. **Configurar variables de entorno (.env):**
 ```
-PORT=3000
+PORT=4000
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
@@ -96,7 +96,7 @@ npm run dev
 
 6. **Una vez en ejecución, el backend estará disponible en:**
 ```
-http://localhost:3000/api
+http://localhost:4000/api
 ```
 
 ### Scripts de Base de Datos
